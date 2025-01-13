@@ -1,0 +1,65 @@
+---
+const brideDetails = {
+  name: "Jane Doe",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+};
+
+const groomDetails = {
+  name: "John Smith",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+};
+---
+
+<section class="couple-details">
+  <h2>The Happy Couple</h2>
+  <div class="couple-grid">
+    <div class="person bride">
+      <img
+        src="/images/bride.jpg"
+        alt={brideDetails.name}
+      />
+      <h3>{brideDetails.name}</h3>
+      <p>{brideDetails.description}</p>
+    </div>
+    <div class="person groom">
+      <img
+        src="/images/groom.jpg"
+        alt={groomDetails.name}
+      />
+      <h3>{groomDetails.name}</h3>
+      <p>{groomDetails.description}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .couple-details {
+    padding: 4rem 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .couple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .person {
+    text-align: center;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+</style>
+

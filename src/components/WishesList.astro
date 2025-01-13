@@ -1,0 +1,430 @@
+---
+interface Wish {
+  id: string;
+  name: string;
+  message: string;
+  createdAt: Date;
+  votes: number;
+}
+
+const wishes: Wish[] = [
+  {
+    id: "1",
+    name: "John Doe",
+    message: "Congratulations! Wishing you a lifetime of love and happiness.",
+    createdAt: new Date("2024-03-20"),
+    votes: 45,
+  },
+  {
+    id: "2",
+    name: "Sarah Johnson",
+    message:
+      "May your love story continue to grow more beautiful with each passing day! ❤️",
+    createdAt: new Date("2024-03-21"),
+    votes: 89,
+  },
+  {
+    id: "3",
+    name: "Michael & Emma",
+    message:
+      "Here's to a lifetime of adventures together! Congratulations on your special day!",
+    createdAt: new Date("2024-03-22"),
+    votes: 30,
+  },
+  {
+    id: "4",
+    name: "The Williams Family",
+    message:
+      "Wishing you both all the joy and happiness in the world. Congratulations! 🎉",
+    createdAt: new Date("2024-03-23"),
+    votes: 20,
+  },
+  {
+    id: "5",
+    name: "David Chen",
+    message:
+      "May your love grow stronger with each passing year. Best wishes to the happy couple!",
+    createdAt: new Date("2024-03-24"),
+    votes: 15,
+  },
+  {
+    id: "6",
+    name: "Lisa & Tom",
+    message:
+      "Congratulations on finding your perfect match! Here's to forever together! 💑",
+    createdAt: new Date("2024-03-25"),
+    votes: 10,
+  },
+  {
+    id: "7",
+    name: "Maria Garcia",
+    message:
+      "May your journey together be filled with love, laughter, and countless beautiful moments!",
+    createdAt: new Date("2024-03-26"),
+    votes: 5,
+  },
+  {
+    id: "8",
+    name: "The Smiths",
+    message:
+      "Sending you both lots of love and best wishes on your wedding day! 💫",
+    createdAt: new Date("2024-03-27"),
+    votes: 7,
+  },
+  {
+    id: "9",
+    name: "Alex & Sophie",
+    message:
+      "Here's to a lifetime of love, laughter, and unforgettable adventures together! 🌟",
+    createdAt: new Date("2024-03-28"),
+    votes: 2,
+  },
+  {
+    id: "10",
+    name: "The Wong Family",
+    message:
+      "May your hearts grow fonder and your love stronger with each passing day. Congratulations! 💝",
+    createdAt: new Date("2024-03-28"),
+    votes: 3,
+  },
+  {
+    id: "11",
+    name: "James & Emily",
+    message:
+      "Wishing you endless joy, countless sweet moments, and a beautiful journey ahead! 🎊",
+    createdAt: new Date("2024-03-29"),
+    votes: 1,
+  },
+  {
+    id: "12",
+    name: "The Patel Family",
+    message:
+      "May your love story continue to inspire others. Best wishes on your special day! ✨",
+    createdAt: new Date("2024-03-29"),
+    votes: 2,
+  },
+  {
+    id: "13",
+    name: "Robert & Anna",
+    message:
+      "To a beautiful couple and a lifetime of cherished memories together! 🥂",
+    createdAt: new Date("2024-03-30"),
+    votes: 5,
+  },
+  {
+    id: "14",
+    name: "The Kim Family",
+    message:
+      "Congratulations on finding your perfect match! May your love continue to blossom! 🌸",
+    createdAt: new Date("2024-03-30"),
+    votes: 4,
+  },
+  {
+    id: "15",
+    name: "Carlos & Isabella",
+    message:
+      "Here's to the beautiful beginning of your forever journey! Felicidades! 💑",
+    createdAt: new Date("2024-03-31"),
+    votes: 3,
+  },
+  {
+    id: "16",
+    name: "The Anderson Family",
+    message:
+      "May your love grow deeper and your happiness multiply with each passing year! 🌈",
+    createdAt: new Date("2024-03-31"),
+    votes: 2,
+  },
+  // Add more sample wishes here
+];
+
+// Sort wishes by votes
+const sortedWishes = [...wishes].sort((a, b) => b.votes - a.votes);
+const topWishId = sortedWishes[0].id;
+---
+
+<section class="wishes-list">
+  <!-- <h2>Wedding Wishes</h2> -->
+  <div
+    class="wishes"
+    id="wishes-container">
+    {
+      wishes.map((wish) => (
+        <div
+          class="wish-card"
+          data-top-wish={wish.id === topWishId ? "true" : "false"}
+          data-wish-id={wish.id}>
+          <span class="wish-code">
+            #{(parseInt(wish.id) + 1000).toString()}
+          </span>
+          {/* <div class="vote-count">
+            <span class="votes">{wish.votes}</span>
+            <span class="heart">❤️</span>
+          </div> */}
+          <h3>{wish.name}</h3>
+          <p class="message">{wish.message}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .wishes-list {
+    padding: 0;
+    background-color: #fafafa;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .wishes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+  }
+
+  .wish-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 500px;
+    transform: translateX(100vw);
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    transition: top 0.5s ease;
+    opacity: 0.85;
+  }
+
+  .wish-code {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: #aaa;
+    font-family: monospace;
+  }
+
+  .wish-card h3 {
+    font-size: 0.9rem;
+    color: #888;
+    order: 2;
+    margin-top: 1rem;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  .message {
+    color: #666;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    order: 1;
+    quotes: "" " " "";
+  }
+
+  .message::before {
+    content: open-quote;
+    font-size: 1.5em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.3em;
+  }
+
+  .message::after {
+    content: close-quote;
+    font-size: 1.5em;
+    line-height: 0.1em;
+    margin-left: 0.1em;
+    vertical-align: -0.3em;
+  }
+
+  .date {
+    color: #999;
+    font-size: 0.9rem;
+    order: 3;
+  }
+
+  @keyframes moveLeft {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sparkle {
+    0% {
+      background-position: -100% 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  .wish-card {
+    transition: all 0.3s ease;
+  }
+
+  .wish-card[data-top-wish="true"] {
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(255, 215, 0, 0.2) 35%,
+      rgba(255, 215, 0, 0.3) 50%,
+      rgba(255, 215, 0, 0.2) 65%,
+      rgba(255, 255, 255, 1) 75%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background-size: 200% 100%;
+    animation: sparkle 4s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+    opacity: 1;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wish-card[data-top-wish="true"]::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 70%
+    );
+    animation: rotate 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .vote-count {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .vote-count .heart {
+    font-size: 0.8rem;
+  }
+
+  .wish-card[data-top-wish="true"] .vote-count {
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .wish-card[data-top-wish="true"] .vote-count .heart {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+</style>
+
+<script>
+  function initializeWishesAnimation() {
+    const container = document.getElementById("wishes-container");
+    const wishCards = document.querySelectorAll(".wish-card");
+    const MIN_Y = 5;
+    const MAX_Y = 85;
+    const CARD_HEIGHT = 15; // Approximate card height in vh
+    const ANIMATION_DURATION = 30; // seconds for one complete cycle
+
+    function getRandomPosition(usedPositions: number[]): number {
+      let position;
+      let attempts = 0;
+      const maxAttempts = 50;
+
+      do {
+        position = MIN_Y + Math.random() * (MAX_Y - MIN_Y);
+        attempts++;
+
+        // Check if position is valid (not too close to other cards)
+        const isValid = !usedPositions.some(
+          (usedPos) => Math.abs(usedPos - position) < CARD_HEIGHT
+        );
+
+        if (isValid || attempts >= maxAttempts) {
+          return position;
+        }
+      } while (attempts < maxAttempts);
+
+      // If no valid position found, return fallback position
+      return MIN_Y + usedPositions.length * CARD_HEIGHT;
+    }
+
+    function setupCards() {
+      const cardWidth = 500;
+      const viewportWidth = window.innerWidth;
+      const totalDistance = viewportWidth + cardWidth;
+      const cardSpacing = totalDistance / wishCards.length;
+      const timePerPixel = ANIMATION_DURATION / totalDistance;
+      const usedPositions: number[] = [];
+
+      wishCards.forEach((card, index) => {
+        const yPos = getRandomPosition(usedPositions);
+        usedPositions.push(yPos);
+        const startPosition = index * cardSpacing;
+        const delay = startPosition * timePerPixel;
+
+        const htmlCard = card as HTMLElement;
+        htmlCard.style.top = `${yPos}vh`;
+        htmlCard.style.animation = `moveLeft ${ANIMATION_DURATION}s linear infinite`;
+        htmlCard.style.animationDelay = `-${delay}s`;
+
+        // Randomize position when animation completes
+        htmlCard.addEventListener("animationiteration", () => {
+          // Get current positions of all other cards
+          const otherPositions = Array.from(wishCards)
+            .filter((c) => c !== card)
+            .map((c) => parseFloat((c as HTMLElement).style.top));
+          const newYPos = getRandomPosition(otherPositions);
+          htmlCard.style.top = `${newYPos}vh`;
+        });
+      });
+    }
+
+    setupCards();
+
+    // Update positions on window resize
+    window.addEventListener("resize", setupCards);
+  }
+
+  document.addEventListener("DOMContentLoaded", initializeWishesAnimation);
+</script>

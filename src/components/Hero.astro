@@ -1,0 +1,49 @@
+---
+// You can add your wedding details here
+const weddingDate = "December 31, 2024";
+const brideFullName = "Jane Doe";
+const groomFullName = "John Smith";
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>{brideFullName} & {groomFullName}</h1>
+    <p class="date">{weddingDate}</p>
+    <p class="tagline">Are getting married</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    height: 100vh;
+    background-image: url("/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .date {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+  }
+</style>
+

@@ -1,0 +1,105 @@
+---
+
+---
+
+<section
+  id="rsvp"
+  class="rsvp">
+  <h2>RSVP</h2>
+  <form class="rsvp-form">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="attending">Will you attend?</label>
+      <select
+        id="attending"
+        name="attending"
+        required>
+        <option value="yes">Yes, I will attend</option>
+        <option value="no">No, I cannot attend</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="guests">Number of Guests</label>
+      <input
+        type="number"
+        id="guests"
+        name="guests"
+        min="0"
+        max="5"
+        required
+      />
+    </div>
+
+    <button type="submit">Submit RSVP</button>
+  </form>
+</section>
+
+<style>
+  .rsvp {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .rsvp-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #444;
+  }
+</style>
+

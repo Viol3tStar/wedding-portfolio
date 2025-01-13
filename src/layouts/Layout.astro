@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Wedding Portfolio Website" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <meta
+      name="description"
+      content={description}
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/wishes">View All Wishes</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <style is:global>
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: #f6f6f6;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .main-nav {
+        padding: 1rem 2rem;
+        background: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      .main-nav a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .main-nav a:hover {
+        color: #666;
+      }
+
+      main {
+        padding-top: 4rem;
+      }
+    </style>
+  </body>
+</html>

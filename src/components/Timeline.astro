@@ -1,0 +1,66 @@
+---
+const events = [
+  {
+    time: "3:00 PM",
+    title: "Wedding Ceremony",
+    description: "Exchange of vows at the Main Hall",
+  },
+  {
+    time: "4:30 PM",
+    title: "Cocktail Hour",
+    description: "Drinks and appetizers in the Garden",
+  },
+  {
+    time: "6:00 PM",
+    title: "Reception Dinner",
+    description: "Celebration dinner and dancing",
+  },
+];
+---
+
+<section class="timeline">
+  <h2>Wedding Day Schedule</h2>
+  <div class="events">
+    {
+      events.map((event) => (
+        <div class="event">
+          <div class="time">{event.time}</div>
+          <h3>{event.title}</h3>
+          <p>{event.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .timeline {
+    padding: 4rem 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .events {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .event {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .time {
+    color: #666;
+    font-weight: bold;
+  }
+</style>
+

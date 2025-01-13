@@ -1,0 +1,85 @@
+---
+
+---
+
+<section class="wishes-form">
+  <h2>Send Your Wishes</h2>
+  <form
+    action="/api/wishes"
+    method="POST"
+    class="form">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        minlength="2"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        minlength="10"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <button type="submit">Send Wishes</button>
+  </form>
+</section>
+
+<style>
+  .wishes-form {
+    padding: 4rem 2rem;
+    background-color: #fff;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #444;
+  }
+</style>
